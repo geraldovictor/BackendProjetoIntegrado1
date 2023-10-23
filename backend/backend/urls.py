@@ -15,8 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.urls import include, path
+from rest_framework import routers
+
+from foguete.views import DadosVooViewSet
+
+router = routers.DefaultRouter()
+router.register(
+    'dados-voo', DadosVooViewSet, basename='dados-voo'
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
+    path('', include(router.urls)),
 ]
+
