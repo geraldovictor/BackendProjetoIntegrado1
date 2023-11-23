@@ -1,11 +1,13 @@
 
 from rest_framework import serializers
 
-from .models import DadosVoo
+from .models import Voo, Instante, Eixo
 
 
-class DadosVooSerializer(serializers.ModelSerializer):
+class VooSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = DadosVoo
+        model = Voo
+        model = Instante
+        model = Eixo
         fields = '__all__'
