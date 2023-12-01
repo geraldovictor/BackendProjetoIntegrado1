@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from foguete.views import VooViewSet, InstanteViewSet
+from foguete.views import VooViewSet, InstanteViewSet, CountElementsView
 
 router = routers.DefaultRouter()
 
@@ -26,9 +26,11 @@ router = routers.DefaultRouter()
 router.register('dados-voo', VooViewSet, basename='dados-voo')
 router.register('dados-instante', InstanteViewSet, basename='dados-instante')
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('count-voos/', CountElementsView.as_view(), name='count-voos'),
     path('', include(router.urls)),
 ]
 
