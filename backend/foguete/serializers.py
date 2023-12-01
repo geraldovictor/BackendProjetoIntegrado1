@@ -13,3 +13,6 @@ class InstanteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Instante
         fields = '__all__'
+
+class CountElementsSerializer(serializers.Serializer):
+    voo_count = serializers.IntegerField()
