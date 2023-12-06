@@ -16,3 +16,10 @@ class InstanteSerializer(serializers.ModelSerializer):
 
 class CountElementsSerializer(serializers.Serializer):
     voo_count = serializers.IntegerField()
+
+# class InstanteByVooSerializer(serializers.ModelSerializer):
+#     idVoo = VooSerializer()  # Use VooSerializer for idVoo field
+
+#     class Meta:
+#         model = Instante
+#         fields = '__all__'

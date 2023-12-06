@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from foguete.views import VooViewSet, InstanteViewSet, CountElementsView
+from foguete.views import VooViewSet, InstanteViewSet, CountElementsView, InstanteByVooView
 
 router = routers.DefaultRouter()
 
@@ -31,6 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('count-voos/', CountElementsView.as_view(), name='count-voos'),
+    path('instantes-by-voo/<int:idVoo>/', InstanteByVooView.as_view(), name='instantes-by-voo'),
     path('', include(router.urls)),
 ]
 
