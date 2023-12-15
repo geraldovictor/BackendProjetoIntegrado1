@@ -16,19 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.urls import include, path
 from rest_framework import routers
 
-from foguete.views import DadosVooViewSet
+from foguete.views import VooViewSet, InstanteViewSet, CountElementsView, InstanteByVooView
 
 router = routers.DefaultRouter()
-router.register(
-    'dados-voo', DadosVooViewSet, basename='dados-voo'
-)
+
+# Registrar cada ViewSet separadamente no roteador
+router.register('dados-voo', VooViewSet, basename='dados-voo')
+router.register('dados-instante', InstanteViewSet, basename='dados-instante')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('count-voos/', CountElementsView.as_view(), name='count-voos'),
+    path('instantes-by-voo/<int:idVoo>/', InstanteByVooView.as_view(), name='instantes-by-voo'),
     path('', include(router.urls)),
 ]
+
 
