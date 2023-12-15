@@ -12,7 +12,7 @@ class Voo(models.Model):
 
 class Instante(models.Model):
     idInstante = models.AutoField(primary_key=True)
-    tempo = models.TimeField()
+    tempo = models.IntegerField()
     latitude = models.DecimalField(max_digits=10, decimal_places=6)
     longitude = models.DecimalField(max_digits=10, decimal_places=6)
     altitude = models.DecimalField(max_digits=6, decimal_places=2)
